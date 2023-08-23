@@ -5,6 +5,7 @@ import 'package:flutter_riverpod_task_management/common/widgets/custom_text_fiel
 import 'package:flutter_riverpod_task_management/common/widgets/height_spacer_widget.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/reusable_text_widget.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/width_spacer_widget.dart';
+import 'package:flutter_riverpod_task_management/common/widgets/xpansion_tile.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -174,7 +175,7 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
               ),
               HeightSpacer(height: 20.h),
               SizedBox(
-                height: AppConstants.kHeight * 0.3,
+                height: AppConstants.kHeight * 0.2,
                 width: AppConstants.kWidth,
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(
@@ -194,7 +195,19 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
                     ],
                   ),
                 ),
-              )
+              ),
+              HeightSpacer(height: 20.h),
+              XpansionTile(
+                text: "Tomorrow's Task",
+                text2: "Tomorrow's tasks are shown here",
+                children: const [],
+              ),
+              HeightSpacer(height: 20.h),
+              XpansionTile(
+                text: DateTime.now().add(const Duration(days: 2)).toString().substring(5, 10),
+                text2: "Tomorrow's tasks are shown here",
+                children: const [],
+              ),
             ],
           ),
         ),
