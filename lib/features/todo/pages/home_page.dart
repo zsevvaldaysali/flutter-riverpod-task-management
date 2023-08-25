@@ -6,6 +6,7 @@ import 'package:flutter_riverpod_task_management/common/widgets/height_spacer_wi
 import 'package:flutter_riverpod_task_management/common/widgets/reusable_text_widget.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/width_spacer_widget.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/xpansion_tile.dart';
+import 'package:flutter_riverpod_task_management/features/todo/widgets/todo_tile.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -187,6 +188,26 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
                       Container(
                         color: AppConstants.kLightBk,
                         height: AppConstants.kHeight * 0.3,
+                        child: ListView(
+                          children: [
+                            TodoTile(
+                              start: "03.00",
+                              end: "05.00",
+                              switcherWidget: Switch(
+                                value: true,
+                                /*trackOutlineColor:
+                                    MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.disabled)) {
+                                    return Colors.orange.withOpacity(.48);
+                                  }
+                                  return null; // Use the default color.
+                                }),*/
+                                activeColor: AppConstants.kRed,
+                                onChanged: (value) {}, //save the value
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       Container(
                         color: AppConstants.kLightBk,
