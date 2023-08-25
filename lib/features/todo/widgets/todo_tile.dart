@@ -66,11 +66,11 @@ class TodoTile extends StatelessWidget {
                           children: [
                             ReusableTextWidget(
                                 text: title ?? "Title of ToDo",
-                                style: appStyleWidget(18, AppConstants.kLight, FontWeight.bold)),
+                                style: appStyleWidget(20.w, AppConstants.kLight, FontWeight.bold)),
                             HeightSpacer(height: 5.h),
                             ReusableTextWidget(
                                 text: description ?? "description of ToDo",
-                                style: appStyleWidget(12, AppConstants.kLight, FontWeight.bold)),
+                                style: appStyleWidget(15.w, AppConstants.kLight, FontWeight.bold)),
                             HeightSpacer(height: 15.h),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -84,11 +84,12 @@ class TodoTile extends StatelessWidget {
                                       color: AppConstants.kGreyDark,
                                     ),
                                     borderRadius: BorderRadius.all(Radius.circular(AppConstants.kRadius)),
+                                    color: AppConstants.kDarkBk,
                                   ),
                                   child: Center(
                                     child: ReusableTextWidget(
                                         text: "$start  |  $end",
-                                        style: appStyleWidget(12, AppConstants.kLight, FontWeight.normal)),
+                                        style: appStyleWidget(13.w, AppConstants.kLight, FontWeight.normal)),
                                   ),
                                 ),
                                 WidthSpacer(width: 20.w),
