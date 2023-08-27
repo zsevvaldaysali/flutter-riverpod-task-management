@@ -3,7 +3,13 @@ import 'package:flutter_riverpod_task_management/common/utils/constants.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/titles.dart';
 
 class XpansionTile extends StatelessWidget {
-  XpansionTile({super.key, required this.text, required this.text2, this.trailing, required this.children});
+  XpansionTile(
+      {super.key,
+      required this.text,
+      required this.text2,
+      this.trailing,
+      this.onExpansionChanged,
+      required this.children});
   final String text;
   final String text2;
   final Widget? trailing;
