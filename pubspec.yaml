@@ -46,6 +46,7 @@ dependencies:
   flutter_riverpod: ^2.3.7
   riverpod_annotation: ^2.1.2
   sqflite: ^2.3.0
+  dynamic_color: ^1.6.6
   
 
 dev_dependencies:

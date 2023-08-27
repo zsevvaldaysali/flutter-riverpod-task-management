@@ -196,14 +196,6 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
                               end: "05.00",
                               switcherWidget: Switch(
                                 value: true,
-                                /*trackOutlineColor:
-                                    MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
-                                  if (states.contains(MaterialState.disabled)) {
-                                    return Colors.orange.withOpacity(.48);
-                                  }
-                                  return null; // Use the default color.
-                                }),*/
-                                activeColor: AppConstants.kRed,
                                 onChanged: (value) {}, //save the value
                               ),
                             ),
@@ -240,7 +232,6 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
                     end: "05.00",
                     switcherWidget: Switch(
                       value: true,
-                      activeColor: AppConstants.kRed,
                       onChanged: (value) {}, //save the value
                     ),
                   ),
@@ -260,7 +251,7 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
                           AntDesign.closecircleo,
                           color: AppConstants.kLight,
                         )
-                      : const Icon(AntDesign.circledown, color: AppConstants.kGreen),
+                      : const Icon(AntDesign.circledown, color: AppConstants.kBlueLight),
                 ),
                 children: [
                   TodoTile(
@@ -268,7 +259,6 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
                     end: "05.00",
                     switcherWidget: Switch(
                       value: true,
-                      activeColor: AppConstants.kRed,
                       onChanged: (value) {}, //save the value
                     ),
                   ),
