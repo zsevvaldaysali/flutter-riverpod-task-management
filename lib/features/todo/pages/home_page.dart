@@ -7,6 +7,7 @@ import 'package:flutter_riverpod_task_management/common/widgets/reusable_text_wi
 import 'package:flutter_riverpod_task_management/common/widgets/width_spacer_widget.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/xpansion_tile.dart';
 import 'package:flutter_riverpod_task_management/features/todo/controllers/xpansion_provider.dart';
+import 'package:flutter_riverpod_task_management/features/todo/pages/add.dart';
 import 'package:flutter_riverpod_task_management/features/todo/widgets/todo_tile.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
@@ -61,7 +62,13 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
                         ),
                       ),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const AddTask(),
+                              ));
+                        },
                         child: const Icon(
                           Icons.add,
                           color: AppConstants.kDarkBk,
