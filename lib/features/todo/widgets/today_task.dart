@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod_task_management/common/utils/constants.dart';
 import 'package:flutter_riverpod_task_management/features/todo/controllers/todo/todo_provider.dart';
+import 'package:flutter_riverpod_task_management/features/todo/pages/update_task.dart';
 import 'package:flutter_riverpod_task_management/features/todo/widgets/todo_tile.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
@@ -50,7 +52,17 @@ class TodayTasks extends ConsumerWidget {
             ref.read(todoStateProvider.notifier).deleteTodo(data.id ?? 0);
           },
           editWidget: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              titles = data.title.toString();
+              descriptions = data.description.toString();
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => UpdateTask(
+                      id: data.id ?? 0,
+                    ),
+                  ));
+            },
             child: const Icon(
               MaterialCommunityIcons.circle_edit_outline,
             ),

@@ -187,7 +187,7 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
               ),
               HeightSpacer(height: 20.h),
               SizedBox(
-                height: AppConstants.kHeight * 0.3,
+                height: AppConstants.kHeight * 0.4.h,
                 width: AppConstants.kWidth,
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(
@@ -198,13 +198,11 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
                     children: [
                       Container(
                         color: AppConstants.kLightBk,
-                        height: AppConstants.kHeight * 0.3,
                         child: const TodayTasks(),
                         //TodayList(),
                       ),
                       Container(
                         color: AppConstants.kLightBk,
-                        height: AppConstants.kHeight * 0.3,
                         child: const CompletedTasks(),
                       ),
                     ],

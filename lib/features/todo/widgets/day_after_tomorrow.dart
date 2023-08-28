@@ -10,9 +10,11 @@ class DayAfterTomorrow extends ConsumerWidget {
   }
 }*/
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod_task_management/common/utils/constants.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/xpansion_tile.dart';
 import 'package:flutter_riverpod_task_management/features/todo/controllers/todo/todo_provider.dart';
 import 'package:flutter_riverpod_task_management/features/todo/controllers/xpansion_provider.dart';
+import 'package:flutter_riverpod_task_management/features/todo/pages/update_task.dart';
 import 'package:flutter_riverpod_task_management/features/todo/widgets/todo_tile.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
@@ -29,7 +31,7 @@ class DayAfterTomorrow extends ConsumerWidget {
     var tomorrowsTasks = todos.where((element) => element.date!.contains(dayAfterTomorrow)).toList();
     return XpansionTile(
       text: DateTime.now().add(const Duration(days: 2)).toString().substring(5, 10),
-                text2: "Day after tomorrow tasks",
+      text2: "Day after tomorrow tasks",
       onExpansionChanged: (bool expanded) {
         ref.read(xpansionStateProvider.notifier).setStart(!expanded);
       },
@@ -55,7 +57,17 @@ class DayAfterTomorrow extends ConsumerWidget {
               ref.read(todoStateProvider.notifier).deleteTodo(todo.id ?? 0);
             },
             editWidget: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                titles = todo.title.toString();
+                descriptions = todo.description.toString();
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => UpdateTask(
+                        id: todo.id ?? 0,
+                      ),
+                    ));
+              },
               child: const Icon(
                 MaterialCommunityIcons.circle_edit_outline,
               ),
