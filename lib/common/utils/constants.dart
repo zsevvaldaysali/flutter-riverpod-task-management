@@ -20,3 +20,11 @@ class AppConstants {
 
   static double kRadius = 12.h;
 }
+
+List<dynamic> colors = [
+  const Color(0xffd80000),
+  const Color(0xff027eb5),
+  const Color(0xff20a31e),
+  const Color(0xfff9f900),
+  const Color.fromARGB(255, 230, 28, 129),
+];

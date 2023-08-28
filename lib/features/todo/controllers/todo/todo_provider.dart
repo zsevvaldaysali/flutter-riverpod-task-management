@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter_riverpod_task_management/common/helpers/db_helper.dart';
 import 'package:flutter_riverpod_task_management/common/models/task_model.dart';
+import 'package:flutter_riverpod_task_management/common/utils/constants.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'todo_provider.g.dart';
 
@@ -20,6 +23,12 @@ class TodoState extends _$TodoState {
   void addItem(Task task) async {
     await DBHelper.createItem(task);
     refresh();
+  }
+
+  dynamic getRandomColor() {
+    Random random = Random();
+    int randomIndex = random.nextInt(colors.length);
+    return colors[randomIndex];
   }
 
 //to update the item

@@ -6,8 +6,10 @@ import 'package:flutter_riverpod_task_management/common/widgets/height_spacer_wi
 import 'package:flutter_riverpod_task_management/common/widgets/reusable_text_widget.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/width_spacer_widget.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/xpansion_tile.dart';
+import 'package:flutter_riverpod_task_management/features/todo/controllers/todo/todo_provider.dart';
 import 'package:flutter_riverpod_task_management/features/todo/controllers/xpansion_provider.dart';
 import 'package:flutter_riverpod_task_management/features/todo/pages/add.dart';
+import 'package:flutter_riverpod_task_management/features/todo/widgets/today_task.dart';
 import 'package:flutter_riverpod_task_management/features/todo/widgets/todo_tile.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
@@ -26,6 +28,7 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
+    ref.watch(todoStateProvider.notifier).refresh();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -196,18 +199,8 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
                       Container(
                         color: AppConstants.kLightBk,
                         height: AppConstants.kHeight * 0.3,
-                        child: ListView(
-                          children: [
-                            TodoTile(
-                              start: "03.00",
-                              end: "05.00",
-                              switcherWidget: Switch(
-                                value: true,
-                                onChanged: (value) {}, //save the value
-                              ),
-                            ),
-                          ],
-                        ),
+                        child: const TodayTasks(),
+                        //TodayList(),
                       ),
                       Container(
                         color: AppConstants.kLightBk,

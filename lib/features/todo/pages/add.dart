@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod_task_management/common/models/task_model.dart';
 import 'package:flutter_riverpod_task_management/common/utils/constants.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/app_style_widget.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/custom_outlinebutton_widget.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/custom_text_field.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/height_spacer_widget.dart';
 import 'package:flutter_riverpod_task_management/features/todo/controllers/dates/dates_provider.dart';
+import 'package:flutter_riverpod_task_management/features/todo/controllers/todo/todo_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart' as picker;
@@ -88,7 +90,7 @@ class _AddTaskState extends ConsumerState<AddTask> {
                 width: AppConstants.kWidth * .4.w,
                 color: AppConstants.kLight,
                 color2: AppConstants.kBlueLight,
-                text: finish == "" ? "end time" : finish.substring(10, 16),
+                text: finish == "" ? "finish time" : finish.substring(10, 16),
                 onTap: () {
                   picker.DatePicker.showDateTimePicker(
                     context,
@@ -103,6 +105,31 @@ class _AddTaskState extends ConsumerState<AddTask> {
             ]),
             HeightSpacer(height: 20.h),
             CustomOutlineButtonWidget(
+                onTap: () {
+                  if (titleController.text.isNotEmpty &&
+                      descriptionController.text.isNotEmpty &&
+                      scheduleDate.isNotEmpty &&
+                      start.isNotEmpty &&
+                      finish.isNotEmpty) {
+                    Task task = Task(
+                      title: titleController.text,
+                      description: descriptionController.text,
+                      startTime: start.substring(10, 16),
+                      endTime: finish.substring(10, 16),
+                      date: scheduleDate,
+                      isCompleted: 0,
+                      remind: 0,
+                      repeat: "yes",
+                    );
+                    ref.read(todoStateProvider.notifier).addItem(task);
+                    ref.read(endTimeStateProvider.notifier).setEndTime('');
+                    ref.read(startTimeStateProvider.notifier).setStartTime('');
+                    ref.read(dateStateProvider.notifier).setDate('');
+                    Navigator.pop(context);
+                  } else {
+                    print("failed to add task");
+                  }
+                },
                 height: 52.h,
                 width: AppConstants.kWidth * .4.w,
                 color: AppConstants.kLight,
