@@ -5,12 +5,11 @@ import 'package:flutter_riverpod_task_management/common/widgets/custom_text_fiel
 import 'package:flutter_riverpod_task_management/common/widgets/height_spacer_widget.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/reusable_text_widget.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/width_spacer_widget.dart';
-import 'package:flutter_riverpod_task_management/common/widgets/xpansion_tile.dart';
 import 'package:flutter_riverpod_task_management/features/todo/controllers/todo/todo_provider.dart';
-import 'package:flutter_riverpod_task_management/features/todo/controllers/xpansion_provider.dart';
 import 'package:flutter_riverpod_task_management/features/todo/pages/add.dart';
+import 'package:flutter_riverpod_task_management/features/todo/widgets/day_after_tomorrow.dart';
 import 'package:flutter_riverpod_task_management/features/todo/widgets/today_task.dart';
-import 'package:flutter_riverpod_task_management/features/todo/widgets/todo_tile.dart';
+import 'package:flutter_riverpod_task_management/features/todo/widgets/tomorrow_list.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -211,59 +210,9 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
                 ),
               ),
               HeightSpacer(height: 20.h),
-              XpansionTile(
-                text: "Tomorrow's Task",
-                text2: "Tomorrow's tasks are shown here",
-                onExpansionChanged: (bool expanded) {
-                  ref.read(xpansionStateProvider.notifier).setStart(!expanded);
-                },
-                trailing: Padding(
-                  padding: EdgeInsets.only(right: 10.w),
-                  child: ref.watch(xpansionStateProvider)
-                      ? const Icon(
-                          AntDesign.circledown,
-                          color: AppConstants.kLight,
-                        )
-                      : const Icon(AntDesign.closecircleo, color: AppConstants.kBlueLight),
-                ),
-                children: [
-                  TodoTile(
-                    start: "03.00",
-                    end: "05.00",
-                    switcherWidget: Switch(
-                      value: true,
-                      onChanged: (value) {}, //save the value
-                    ),
-                  ),
-                ],
-              ),
+              const TomorrowList(),
               HeightSpacer(height: 20.h),
-              XpansionTile(
-                text: DateTime.now().add(const Duration(days: 2)).toString().substring(5, 10),
-                text2: "Tomorrow's tasks are shown here",
-                onExpansionChanged: (bool expanded) {
-                  ref.read(xpansionState0Provider.notifier).setStart(!expanded);
-                },
-                trailing: Padding(
-                  padding: EdgeInsets.only(right: 10.w),
-                  child: ref.watch(xpansionState0Provider)
-                      ? const Icon(
-                          AntDesign.closecircleo,
-                          color: AppConstants.kLight,
-                        )
-                      : const Icon(AntDesign.circledown, color: AppConstants.kBlueLight),
-                ),
-                children: [
-                  TodoTile(
-                    start: "03.00",
-                    end: "05.00",
-                    switcherWidget: Switch(
-                      value: true,
-                      onChanged: (value) {}, //save the value
-                    ),
-                  ),
-                ],
-              ),
+              const DayAfterTomorrow(),
             ],
           ),
         ),

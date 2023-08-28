@@ -41,7 +41,9 @@ class TodayTasks extends ConsumerWidget {
             ref.read(todoStateProvider.notifier).deleteTodo(data.id ?? 0);
           },
           editWidget: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              
+            },
             child: const Icon(
               MaterialCommunityIcons.circle_edit_outline,
             ),
