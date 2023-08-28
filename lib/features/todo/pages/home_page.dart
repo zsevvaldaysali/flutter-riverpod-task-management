@@ -7,6 +7,7 @@ import 'package:flutter_riverpod_task_management/common/widgets/reusable_text_wi
 import 'package:flutter_riverpod_task_management/common/widgets/width_spacer_widget.dart';
 import 'package:flutter_riverpod_task_management/features/todo/controllers/todo/todo_provider.dart';
 import 'package:flutter_riverpod_task_management/features/todo/pages/add.dart';
+import 'package:flutter_riverpod_task_management/features/todo/widgets/completed_task.dart';
 import 'package:flutter_riverpod_task_management/features/todo/widgets/day_after_tomorrow.dart';
 import 'package:flutter_riverpod_task_management/features/todo/widgets/today_task.dart';
 import 'package:flutter_riverpod_task_management/features/todo/widgets/tomorrow_list.dart';
@@ -204,6 +205,7 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
                       Container(
                         color: AppConstants.kLightBk,
                         height: AppConstants.kHeight * 0.3,
+                        child: const CompletedTasks(),
                       ),
                     ],
                   ),

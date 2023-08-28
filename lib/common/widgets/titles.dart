@@ -4,6 +4,7 @@ import 'package:flutter_riverpod_task_management/common/widgets/app_style_widget
 import 'package:flutter_riverpod_task_management/common/widgets/height_spacer_widget.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/reusable_text_widget.dart';
 import 'package:flutter_riverpod_task_management/common/widgets/width_spacer_widget.dart';
+import 'package:flutter_riverpod_task_management/features/todo/controllers/todo/todo_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -24,13 +25,14 @@ class BottomTitles extends StatelessWidget {
           children: [
             Consumer(
               builder: (context, ref, child) {
+                var color = ref.read(todoStateProvider.notifier).getRandomColor();
                 return Container(
                   height: 80,
                   width: 5,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(AppConstants.kRadius)),
                     //TODO: ADD DYNAMIC COLORS
-                    color: AppConstants.kGreen,
+                    color: color,
                   ),
                 );
               },
