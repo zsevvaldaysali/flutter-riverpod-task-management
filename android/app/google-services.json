@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "440506479780",
+    "project_id": "taskmanagement-88aa3",
+    "storage_bucket": "taskmanagement-88aa3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440506479780:android:a2b81988d34f040eefa231",
+        "android_client_info": {
+          "package_name": "com.example.flutter_riverpod_task_management"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440506479780-oubnt9sqpekjssjvr28hopdol9k3ugv8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMsAFQaCzgXTqim_RFFXX0QI95A8DGE14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440506479780-oubnt9sqpekjssjvr28hopdol9k3ugv8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
