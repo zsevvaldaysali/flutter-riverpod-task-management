@@ -6,7 +6,7 @@ import 'package:flutter_riverpod_task_management/common/routes/routes.dart';
 import 'package:flutter_riverpod_task_management/common/utils/constants.dart';
 import 'package:flutter_riverpod_task_management/features/auth/controllers/user_controller.dart';
 import 'package:flutter_riverpod_task_management/features/onboarding/pages/onboarding_page.dart';
-import 'package:flutter_riverpod_task_management/features/todo/pages/home_page.dart';
+import 'package:flutter_riverpod_task_management/features/todo/pages/view_not.dart';
 import 'package:flutter_riverpod_task_management/firebase_options.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -56,7 +56,7 @@ class MyApp extends ConsumerWidget {
                   useMaterial3: true,
                   scaffoldBackgroundColor: AppConstants.kDarkBk),
               themeMode: ThemeMode.dark,
-              home: users.isEmpty ? const OnboardingPage() : const HomePage(),
+              home: users.isEmpty ? const OnboardingPage() : const NotificationsPage(),
               onGenerateRoute: Routes.onGenerateRoutes,
             );
           });
