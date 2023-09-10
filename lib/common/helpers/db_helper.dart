@@ -55,7 +55,7 @@ class DBHelper {
   }
 
 //getting users
-  static Future<List<Map<String, dynamic>>> getUser() async {
+  static Future<List<Map<String, dynamic>>> getUsers() async {
     final db = await DBHelper.db();
     return db.query('user', orderBy: 'id');
   }

@@ -7,7 +7,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
 
 class OtpPage extends StatelessWidget {
-  const OtpPage({super.key});
+  const OtpPage({super.key, required this.smsCodeId, required this.phone});
+
+  final String smsCodeId;
+  final String phone;
 
   @override
   Widget build(BuildContext context) {
